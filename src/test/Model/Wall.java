@@ -15,7 +15,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package test.Model;
+
+import test.Controller.Ball;
+import test.Model.*;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -33,9 +36,9 @@ public class Wall {
     private Random rnd;
     private Rectangle area;
 
-    Brick[] bricks;
-    Ball ball;
-    Player player;
+    public Brick[] bricks;
+    public Ball ball;
+    public Player player;
 
     private Brick[][] levels;
     private int level;

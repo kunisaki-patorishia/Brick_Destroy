@@ -15,12 +15,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package test.Model;
+
+import test.Model.Brick;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
-
 
 public class SteelBrick extends Brick {
 
@@ -33,16 +34,15 @@ public class SteelBrick extends Brick {
     private Random rnd;
     private Shape brickFace;
 
-    public SteelBrick(Point point, Dimension size){
-        super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
+    public SteelBrick(Point point, Dimension size) {
+        super(NAME, point, size, DEF_BORDER, DEF_INNER, STEEL_STRENGTH);
         rnd = new Random();
-        brickFace = super.brickFace;
+        brickFace = getBrickFace(); // Use the getter method here
     }
-
 
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
-        return new Rectangle(pos,size);
+        return new Rectangle(pos, size);
     }
 
     @Override
@@ -50,17 +50,18 @@ public class SteelBrick extends Brick {
         return brickFace;
     }
 
-    public  boolean setImpact(Point2D point , int dir){
-        if(super.isBroken())
+    @Override
+    public boolean setImpact(Point2D point, int dir) {
+        if (isBroken())
             return false;
         impact();
-        return  super.isBroken();
+        return isBroken();
     }
 
-    public void impact(){
-        if(rnd.nextDouble() < STEEL_PROBABILITY){
+    @Override
+    public void impact() {
+        if (rnd.nextDouble() < STEEL_PROBABILITY) {
             super.impact();
         }
     }
-
 }
