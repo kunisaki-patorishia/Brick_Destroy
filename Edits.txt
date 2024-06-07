@@ -1,0 +1,34 @@
+19th May 2024
+- remove all the unused import
+- remove wall in debug panel
+- remove name from brick
+
+analyse the code below and rearrange the code into MVC pattern
+
+To adhere to the Model-View-Controller (MVC) pattern, we need to separate concerns and organize the code accordingly. Here's a summary of the changes needed for each class:
+
+SteelBrick Class:
+Model Component: This class already serves as the model component, defining the properties and behavior of a steel brick. No changes are necessary.
+HomeMenu Class:
+View Component: The HomeMenu class should be treated as the view component responsible for displaying the home menu GUI elements. It needs to be refactored to solely handle the UI logic and event handling.
+Separation of Concerns: Remove any logic related to game state or data manipulation from this class.
+Player Class:
+Model Component: This class represents the player's paddle and its behavior. It should remain a model component, responsible for defining the properties and behavior of the player's paddle.
+RubberBall Class:
+Model Component: Similar to the SteelBrick class, RubberBall already serves as a model component, defining the properties and behavior of a rubber ball. No changes are necessary.
+GraphicsMain Class:
+Main Application: This class should serve as the entry point for the application. It should create instances of the necessary model and view components and coordinate their interactions.
+DebugPanel Class:
+View Component: Similar to the HomeMenu class, DebugPanel should be treated as a view component responsible for displaying debug information. Refactor it to focus solely on UI logic and event handling.
+GameFrame Class:
+View Component: GameFrame serves as the main frame for the game. Refactor it to handle the game's overall UI, including switching between different views (e.g., home menu, game board).
+Controller Logic: Add controller logic to handle user input events and coordinate interactions between the model and view components.
+DebugConsole Class:
+View Component: Similar to the DebugPanel, DebugConsole should be treated as a view component responsible for displaying debug information. Refactor it to focus solely on UI logic and event handling.
+
+CementBrick Class:
+Model Component: The CementBrick class defines the properties and behavior of a cement brick. It serves as a model component and should remain responsible for these aspects.
+No Significant Changes Needed: Since CementBrick already primarily deals with defining brick properties and behavior, no significant changes are necessary to adhere to the MVC pattern.
+ClayBrick Class:
+Model Component: Similar to CementBrick, the ClayBrick class defines the properties and behavior of a clay brick. It also serves as a model component and should remain responsible for these aspects.
+No Significant Changes Needed: Like CementBrick, ClayBrick already primarily focuses on defining brick properties and behavior, requiring no significant changes to adhere to the MVC pattern.
